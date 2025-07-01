@@ -66,7 +66,7 @@
 
     /* CABEÇALHO COM LOGO ANIMADA */
     .header {
-      padding: 40px 20px 20px; /* CORRIGIDO */
+      padding: 40px 20px 20px; /* CORRIGIDO: removido valores negativos */
       text-align: center;
       position: relative;
       min-height: 180px;
@@ -84,17 +84,18 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-      url('assets/images/loja1.jpg'); /* CAMINHO RELATIVO */
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), 
+                  url('assets/images/loja1.jpg'); /* CAMINHO CORRIGIDO */
+      background-size: cover; /* GARANTE QUE A IMAGEM CUBRA TODO O ESPAÇO */
+      background-position: center; /* CENTRALIZA A IMAGEM */
+      background-repeat: no-repeat; /* IMPEDE REPETIÇÃO */
       z-index: -1;
     }
 
-    /* CONTAINER DA LOGO AUMENTADO */
+    /* CONTAINER DA LOGO AJUSTADO */
     .logo-container {
-      width: 320px; /* AJUSTADO */
-      height: 160px; /* AJUSTADO */
+      width: 320px; /* TAMANHO MAIS ADEQUADO */
+      height: 160px;
       margin: 0 auto 15px;
       display: flex;
       justify-content: center;
@@ -127,9 +128,9 @@
 
     /* IMAGEM DA LOGO AJUSTADA */
     .logo img {
-      width: 100%; /* AJUSTADO */
-      height: auto; /* AJUSTADO */
+      max-width: 100%; /* GARANTE QUE NÃO ULTRAPASSE O CONTAINER */
       max-height: 100%;
+      height: auto;
       object-fit: contain;
       filter: drop-shadow(0 0 15px rgba(255, 153, 0, 0.5));
     }
@@ -641,8 +642,8 @@
       }
       
       .logo-container {
-        width: 280px; /* AUMENTADO */
-        height: 140px; /* AUMENTADO */
+        width: 280px;
+        height: 140px;
       }
       
       .product-grid {
@@ -688,8 +689,8 @@
       }
       
       .logo-container {
-        width: 240px; /* AUMENTADO */
-        height: 120px; /* AUMENTADO */
+        width: 240px;
+        height: 120px;
       }
     }
   </style>
@@ -700,7 +701,7 @@
     <div class="header">
       <div class="logo-container">
         <div class="logo">
-          <!-- CAMINHO RELATIVO PARA LOGO -->
+          <!-- CAMINHO CORRIGIDO PARA LOGO -->
           <img src="assets/images/logo2.png" alt="Load Games Logo">
         </div>
       </div>
