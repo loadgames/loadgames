@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ===== RESET E VARIÁVEIS ===== */
     * {
       margin: 0;
       padding: 0;
@@ -22,6 +23,7 @@
       --gray: #444;
     }
 
+    /* ===== LAYOUT PRINCIPAL ===== */
     body {
       background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
       color: var(--light);
@@ -59,14 +61,27 @@
       animation: fadeIn 0.8s ease-out;
     }
 
+    /* ===== ANIMAÇÕES ===== */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* CABEÇALHO COM LOGO ANIMADA */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ===== CABEÇALHO COM LOGO ANIMADA ===== */
     .header {
-      padding: 40px 20px 20px; /* CORRIGIDO: removido valores negativos */
+      padding: 40px 20px 20px;
       text-align: center;
       position: relative;
       min-height: 180px;
@@ -85,16 +100,16 @@
       width: 100%;
       height: 100%;
       background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), 
-                  url('assets/images/loja1.jpg'); /* CAMINHO CORRIGIDO */
-      background-size: cover; /* GARANTE QUE A IMAGEM CUBRA TODO O ESPAÇO */
-      background-position: center; /* CENTRALIZA A IMAGEM */
-      background-repeat: no-repeat; /* IMPEDE REPETIÇÃO */
+                  url('assets/images/loja1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       z-index: -1;
     }
 
-    /* CONTAINER DA LOGO AJUSTADO */
+    /* ===== CONTAINER DA LOGO AJUSTADO ===== */
     .logo-container {
-      width: 320px; /* TAMANHO MAIS ADEQUADO */
+      width: 320px;
       height: 160px;
       margin: 0 auto 15px;
       display: flex;
@@ -106,18 +121,6 @@
       animation: pulse 2s infinite, float 4s ease-in-out infinite;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0); }
-    }
-
     .logo {
       width: 100%;
       height: 100%;
@@ -126,9 +129,9 @@
       align-items: center;
     }
 
-    /* IMAGEM DA LOGO AJUSTADA */
+    /* ===== IMAGEM DA LOGO AJUSTADA ===== */
     .logo img {
-      max-width: 100%; /* GARANTE QUE NÃO ULTRAPASSE O CONTAINER */
+      max-width: 100%;
       max-height: 100%;
       height: auto;
       object-fit: contain;
@@ -149,6 +152,7 @@
       backdrop-filter: blur(5px);
     }
 
+    /* ===== REDES SOCIAIS ===== */
     .social-links {
       display: flex;
       justify-content: center;
@@ -179,6 +183,7 @@
       box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
     }
 
+    /* ===== CONTEÚDO PRINCIPAL ===== */
     .content {
       padding: 20px;
     }
@@ -197,6 +202,7 @@
       font-size: 20px;
     }
 
+    /* ===== BOTÕES ===== */
     .buttons-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -256,6 +262,7 @@
       margin-top: 5px;
     }
 
+    /* ===== WIFI ===== */
     .wifi-container {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
@@ -304,6 +311,7 @@
       color: white;
     }
 
+    /* ===== ENDEREÇOS ===== */
     .address-container {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 15px;
@@ -380,7 +388,13 @@
       font-style: italic;
     }
 
-    /* CORREÇÃO PARA AS ESTRELAS */
+    .address-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    /* ===== CORREÇÃO PARA AS ESTRELAS ===== */
     .google-rating {
       display: flex;
       align-items: center;
@@ -433,6 +447,57 @@
       color: white;
     }
 
+    /* ===== SHOWCASE DE PRODUTOS ===== */
+    .product-showcase {
+      margin: 25px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .product-title {
+      font-size: 20px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .product-item {
+      background: rgba(30, 30, 30, 0.8);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .product-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-image {
+      height: 120px;
+      background: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 40px;
+    }
+
+    .product-name {
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    /* ===== FOOTER ===== */
     .footer {
       padding: 20px;
       text-align: center;
@@ -441,6 +506,7 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
+    /* ===== NOTIFICAÇÕES ===== */
     .notification {
       position: fixed;
       top: 20px;
@@ -466,6 +532,7 @@
       pointer-events: auto;
     }
     
+    /* ===== CARTÃO DE CONTATO ===== */
     .contact-card {
       position: fixed;
       top: 0;
@@ -577,61 +644,7 @@
       color: var(--secondary);
     }
 
-    .product-showcase {
-      margin: 25px 0;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      text-align: center;
-    }
-
-    .product-title {
-      font-size: 20px;
-      color: var(--secondary);
-      margin-bottom: 15px;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-
-    .product-item {
-      background: rgba(30, 30, 30, 0.8);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .product-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .product-image {
-      height: 120px;
-      background: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
-      font-size: 40px;
-    }
-
-    .product-name {
-      padding: 12px;
-      font-size: 14px;
-    }
-
-    .address-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
+    /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 480px) {
       .buttons-grid {
         grid-template-columns: 1fr;
@@ -673,6 +686,18 @@
         text-align: center;
         padding: 10px;
       }
+
+      /* ===== OTIMIZAÇÃO ESPECÍFICA PARA IMAGEM DE FUNDO EM MOBILE ===== */
+      .header::before {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+      }
+      
+      .header {
+        min-height: 200px;
+        padding: 30px 15px 15px;
+      }
     }
 
     @media (max-width: 380px) {
@@ -692,6 +717,39 @@
         width: 240px;
         height: 120px;
       }
+
+      /* ===== AJUSTES ADICIONAIS PARA TELAS MUITO PEQUENAS ===== */
+      .header::before {
+        background-size: cover;
+        background-position: center top;
+      }
+      
+      .container {
+        margin: 10px;
+        border-radius: 15px;
+      }
+      
+      .content {
+        padding: 15px;
+      }
+    }
+
+    /* ===== OTIMIZAÇÃO PARA ORIENTAÇÃO LANDSCAPE EM MOBILE ===== */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .header {
+        min-height: 150px;
+        padding: 20px 15px 10px;
+      }
+      
+      .logo-container {
+        width: 200px;
+        height: 100px;
+      }
+      
+      .header::before {
+        background-size: cover;
+        background-position: center center;
+      }
     }
   </style>
 </head>
@@ -701,13 +759,11 @@
     <div class="header">
       <div class="logo-container">
         <div class="logo">
-          <!-- CAMINHO CORRIGIDO PARA LOGO -->
           <img src="assets/images/logo2.png" alt="Load Games Logo">
         </div>
       </div>
       <p class="subtitle">Consoles, acessórios e games com os melhores preços!</p>
 
-      
       <div class="social-links">
         <a href="https://wa.me/551128620607" class="social-icon" target="_blank">
           <i class="fab fa-whatsapp"></i>
